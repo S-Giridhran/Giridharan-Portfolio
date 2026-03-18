@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Global Superstore Sales Dashboard | Giridharan S</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background: linear-gradient(135deg, #1a1a2e, #16213e, #0f172a);
+            background-attachment: fixed;
+            color: white;
+        }
+        .glass { 
+            background: rgba(15, 23, 42, 0.85); 
+            backdrop-filter: blur(12px); 
+        }
+        .section-card {
+            background: rgba(15, 23, 42, 0.75);
+            border: 1px solid rgba(168, 85, 247, 0.2);
+        }
+
+        /* Image Hover Animation */
+        .dashboard-img {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .dashboard-img:hover {
+            transform: scale(1.06);
+            box-shadow: 0 25px 50px -12px rgb(168 85 247 / 0.4);
+        }
+
+        /* Full Screen Modal */
+        #imageModal {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.95);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        #modalImage {
+            max-width: 95%;
+            max-height: 90vh;
+            border-radius: 12px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.8);
+        }
+        .close-btn {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            font-size: 40px;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .close-btn:hover {
+            color: #a855f7;
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body class="min-h-screen pb-20">
+
+    <!-- Back Button -->
+    <div class="max-w-5xl mx-auto px-6 pt-8">
+        <a href="../index.html" class="inline-flex items-center gap-3 text-purple-400 hover:text-purple-300 transition-colors text-lg">
+            <i class="fas fa-arrow-left"></i> Back to Portfolio
+        </a>
+    </div>
+
+    <!-- Main Heading -->
+    <div class="bg-gradient-to-r from-purple-700 to-pink-600 py-12 mt-6">
+        <div class="max-w-5xl mx-auto px-6 text-center">
+            <h1 class="text-4xl md:text-5xl font-bold leading-tight">
+                Global Superstore Sales Performance Dashboard
+            </h1>
+            <p class="text-lg mt-3 text-purple-200">Tableau Data Visualization Project</p>
+        </div>
+    </div>
+
+    <div class="max-w-5xl mx-auto px-6 mt-12 space-y-10">
+
+        <!-- Project Overview -->
+        <div class="section-card glass rounded-3xl p-8 md:p-10">
+            <h2 class="text-2xl font-semibold mb-5 flex items-center gap-3">
+                <span class="text-purple-400"></span> Project Overview
+            </h2>
+            <p class="text-zinc-300 leading-relaxed text-base md:text-lg">
+                This project analyzes the Global Superstore sales data to uncover key business insights. 
+                Interactive Tableau dashboard was built with filters for Region, Category, Segment, Ship Mode and Year. 
+                The analysis helps identify top performing products, underperforming regions and sales trends.
+            </p>
+        </div>
+
+        <!-- Tools Used -->
+        <div class="section-card glass rounded-3xl p-8 md:p-10">
+            <h2 class="text-2xl font-semibold mb-6 flex items-center gap-3">
+                <span class="text-purple-400"></span> Tools Used
+            </h2>
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="flex items-start gap-4">
+                    <i class="fas fa-chart-bar text-2xl text-purple-400 mt-1"></i>
+                    <div>
+                        <strong class="text-lg">Tableau Desktop</strong><br>
+                        <span class="text-zinc-400">Interactive Dashboard Creation</span>
+                    </div>
+                </div>
+                <div class="flex items-start gap-4">
+                    <i class="fas fa-database text-2xl text-blue-400 mt-1"></i>
+                    <div>
+                        <strong class="text-lg">SQL</strong><br>
+                        <span class="text-zinc-400">Data Extraction & Joins</span>
+                    </div>
+                </div>
+                <div class="flex items-start gap-4">
+                    <i class="fas fa-chart-pie text-2xl text-pink-400 mt-1"></i>
+                    <div>
+                        <strong class="text-lg">Data Visualization</strong><br>
+                        <span class="text-zinc-400">Bar, Line, Map & KPI Charts</span>
+                    </div>
+                </div>
+                <div class="flex items-start gap-4">
+                    <i class="fas fa-broom text-2xl text-emerald-400 mt-1"></i>
+                    <div>
+                        <strong class="text-lg">Excel</strong><br>
+                        <span class="text-zinc-400">Data Cleaning & Preparation</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Key Insights -->
+        <div class="section-card glass rounded-3xl p-8 md:p-10">
+            <h2 class="text-2xl font-semibold mb-6 flex items-center gap-3">
+                <span class="text-purple-400"></span> Key Insights
+            </h2>
+            <ul class="space-y-4 text-base md:text-lg text-zinc-300">
+                <li class="flex gap-4"><span class="text-purple-400 text-xl">•</span> Technology category contributes the highest profit margin.</li>
+                <li class="flex gap-4"><span class="text-purple-400 text-xl">•</span> West region performs significantly better than other regions.</li>
+                <li class="flex gap-4"><span class="text-purple-400 text-xl">•</span> Consumer segment generates the highest sales volume.</li>
+                <li class="flex gap-4"><span class="text-purple-400 text-xl">•</span> Discount offers have negative impact on overall profit.</li>
+            </ul>
+        </div>
+
+        <!-- Dashboard Preview with Hover + Click to Full Screen -->
+        <div class="section-card glass rounded-3xl p-8 md:p-10">
+            <h2 class="text-2xl font-semibold mb-8 flex items-center gap-3">
+                <span class="text-purple-400"></span> Dashboard Preview
+            </h2>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Image 1 -->
+                <div class="group cursor-pointer" onclick="showFullImage('images/page_1.png')">
+                    <img src="images/page_1.png" alt="Superstore Dashboard 1" 
+                         class="dashboard-img w-full rounded-2xl border border-purple-500/30 shadow-xl">
+                    <p class="text-center text-zinc-400 mt-4 text-sm">Full Dashboard Overview</p>
+                </div>
+
+                <!-- Image 2 -->
+                <div class="group cursor-pointer" onclick="showFullImage('images/page_2.png')">
+                    <img src="images/page_2.png" alt="Superstore Dashboard 2" 
+                         class="dashboard-img w-full rounded-2xl border border-purple-500/30 shadow-xl">
+                    <p class="text-center text-zinc-400 mt-4 text-sm">Parameters used globally</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Download Report -->
+        <div class="section-card glass rounded-3xl p-8 md:p-10 text-center">
+            <h2 class="text-2xl font-semibold mb-4">Download Full Report</h2>
+            <p class="text-zinc-400 mb-8">Complete project documentation with methodology and findings.</p>
+            
+            <a href="report/Global_Superstore_Report.pdf" download 
+               class="inline-flex items-center gap-3 purple-btn px-10 py-4 rounded-3xl text-lg font-semibold hover:scale-105 transition-all">
+                <i class="fas fa-download"></i>
+                Download PDF Report
+            </a>
+        </div>
+
+    </div>
+
+    <!-- Full Screen Image Modal -->
+    <div id="imageModal">
+        <span class="close-btn" onclick="closeModal()">×</span>
+        <img id="modalImage" src="" alt="Full Screen Dashboard">
+    </div>
+
+    <script>
+        function showFullImage(imageSrc) {
+            document.getElementById('modalImage').src = imageSrc;
+            document.getElementById('imageModal').style.display = 'flex';
+        }
+
+        function closeModal() {
+            document.getElementById('imageModal').style.display = 'none';
+        }
+
+        // Close modal when clicking outside the image
+        document.getElementById('imageModal').addEventListener('click', function(e) {
+            if (e.target.id === 'imageModal') {
+                closeModal();
+            }
+        });
+
+        // Keyboard escape support
+        document.addEventListener('keydown', function(e) {
+            if (e.key === "Escape") {
+                closeModal();
+            }
+        });
+    </script>
+
+</body>
+</html>

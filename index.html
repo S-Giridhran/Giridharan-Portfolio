@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giridharan S | Entry-Level Data Analyst</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background: linear-gradient(135deg, #1a1a2e, #16213e, #0f172a);
+            background-attachment: fixed;
+        }
+        
+        .skill-card, .vision-card, .project-card, .edu-card {
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        .skill-card:hover, .vision-card:hover, .project-card:hover, .edu-card:hover {
+            transform: translateY(-12px) scale(1.03);
+            box-shadow: 0 25px 50px -12px rgb(168 85 247 / 0.35);
+        }
+
+        .nav-link::after { content: ''; position: absolute; bottom: -2px; left: 0; width: 0; height: 2px; background: #a855f7; transition: width 0.3s; }
+        .nav-link:hover::after { width: 100%; }
+        .purple-btn { background: linear-gradient(90deg, #a855f7, #c026d3); }
+        .glass { background: rgba(15, 23, 42, 0.75); backdrop-filter: blur(12px); }
+        
+        .timeline-line { position: absolute; left: 23px; top: 40px; bottom: 20px; width: 3px; background: linear-gradient(#a855f7, #c026d3); border-radius: 9999px; }
+        .timeline-dot { position: absolute; left: 15px; width: 18px; height: 18px; background: #a855f7; border: 3px solid #0f172a; border-radius: 50%; z-index: 10; }
+
+        .project-filter { transition: all 0.3s; }
+        .project-filter.active { background-color: #a855f7; color: white; }
+    </style>
+</head>
+<body class="text-white overflow-x-hidden">
+
+    <!-- NAVBAR -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-black/70 backdrop-blur-lg border-b border-zinc-800">
+        <div class="max-w-7xl mx-auto px-6 py-5 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <div class="w-9 h-9 bg-purple-600 rounded-2xl flex items-center justify-center text-2xl font-bold">G</div>
+                <span class="text-2xl font-bold tracking-tighter">Giridharan</span>
+            </div>
+            <div class="hidden md:flex items-center gap-8 text-sm font-medium">
+                <a href="#home" class="nav-link">About</a>
+                <a href="#skills" class="nav-link">Skills</a>
+                <a href="#visionary" class="nav-link">Visionary</a>
+                <a href="#projects" class="nav-link">Projects</a>
+                <a href="#education" class="nav-link">Education</a>
+            </div>
+            <a href="#contact" class="px-6 py-2.5 bg-white text-zinc-950 font-semibold rounded-2xl hover:bg-purple-600 hover:text-white transition-all">Hire Me</a>
+        </div>
+    </nav>
+
+    <!-- MOBILE MENU -->
+    <div id="mobileMenu" class="hidden fixed top-16 left-0 right-0 bg-black/90 border-b border-zinc-800 py-6 z-40 md:hidden">
+        <div class="flex flex-col items-center gap-6 text-lg">
+            <a href="#home" onclick="toggleMobileMenu()" class="hover:text-purple-400">About</a>
+            <a href="#skills" onclick="toggleMobileMenu()" class="hover:text-purple-400">Skills</a>
+            <a href="#visionary" onclick="toggleMobileMenu()" class="hover:text-purple-400">Visionary</a>
+            <a href="#projects" onclick="toggleMobileMenu()" class="hover:text-purple-400">Projects</a>
+            <a href="#education" onclick="toggleMobileMenu()" class="hover:text-purple-400">Education</a>
+        </div>
+    </div>
+
+    <!-- HERO -->
+    <section id="home" class="min-h-screen flex items-center pt-16 relative">
+        <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+            <div class="space-y-8">
+                <h1 class="text-6xl md:text-7xl font-bold leading-none">
+                    Hi, I am<br>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-500">Giridharan S</span>
+                </h1>
+                <h2 class="text-4xl font-semibold text-purple-400">Entry-Level Data Analyst</h2>
+                <p class="text-xl text-zinc-400 max-w-lg">
+                    Specialist in extracting value from data using SQL, Python & visualization tools. 
+                    Focused on delivering clean, impactful insights that drive real results.
+                </p>
+                <a href="resume/" download="S_Giridharan Resume (Data Analyst).pdf"
+                   class="purple-btn inline-flex px-10 py-4 rounded-2xl font-semibold text-lg items-center gap-3 hover:scale-105 transition-all">
+                    Check Resume <i class="fas fa-download"></i>
+                </a>
+            </div>
+            <div class="flex justify-center md:justify-end">
+                <div class="relative">
+                    <div class="w-80 h-80 rounded-full overflow-hidden border-[6px] border-purple-600 shadow-2xl">
+                        <img src="photo/Giridharan Passport Picture (Coat) 1.png" alt="Giridharan S" class="w-full h-full object-cover">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="absolute bottom-10 left-1/2 flex flex-col items-center">
+            <div class="text-xs tracking-widest mb-2 text-zinc-400">SCROLL TO EXPLORE</div>
+            <div class="w-6 h-10 border-2 border-white rounded-3xl flex items-center justify-center">
+                <div class="w-1 h-2 bg-white rounded-full animate-bounce"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills" class="py-24">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-5xl font-bold">Skills</h2>
+                <p class="text-zinc-400 mt-3">Here are some of my skills on which I have learnt.</p>
+            </div>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="skill-card glass border border-zinc-700 rounded-3xl p-8">
+                    <div class="flex items-center gap-4 mb-6">
+                        <i class="fab fa-python text-6xl text-yellow-400"></i>
+                        <h3 class="text-2xl font-semibold text-purple-400">Data Analysis</h3>
+                    </div>
+                    <p class="text-zinc-300">Python – NumPy, Pandas, Matplotlib + Seaborn</p>
+                </div>
+                <div class="skill-card glass border border-zinc-700 rounded-3xl p-8">
+                    <div class="flex items-center gap-4 mb-6">
+                        <i class="fas fa-database text-6xl text-blue-500"></i>
+                        <h3 class="text-2xl font-semibold text-purple-400">Database Management</h3>
+                    </div>
+                    <p class="text-zinc-300">SQL (Joins, Sub queries), MS SQL Server, Data Modeling</p>
+                </div>
+                <div class="skill-card glass border border-zinc-700 rounded-3xl p-8">
+                    <div class="flex items-center gap-4 mb-6">
+                        <i class="fas fa-chart-bar text-6xl text-pink-500"></i>
+                        <h3 class="text-2xl font-semibold text-purple-400">Data Visualization Tools</h3>
+                    </div>
+                    <p class="text-zinc-300">Advanced MS Excel, Power BI, Tableau</p>
+                </div>
+                <div class="skill-card glass border border-zinc-700 rounded-3xl p-8">
+                    <div class="flex items-center gap-4 mb-6">
+                        <i class="fas fa-brain text-6xl text-emerald-500"></i>
+                        <h3 class="text-2xl font-semibold text-purple-400">Analytical Abilities</h3>
+                    </div>
+                    <p class="text-zinc-300">Data Cleaning, EDA, ETL, Insight Generation, Statistical Analysis, Critical Thinking</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- VISIONARY -->
+    <section id="visionary" class="py-24">
+        <div class="max-w-3xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-5xl font-bold">Visionary</h2>
+                <p class="text-zinc-400 mt-4 text-lg">Launching My Career: A Fresh Perspective on Data Analytics</p>
+            </div>
+            <div class="relative pl-12">
+                <div class="timeline-line"></div>
+                <div class="vision-card glass border border-purple-900/30 rounded-3xl p-10 mb-12 relative">
+                    <div class="timeline-dot top-10"></div>
+                    <h3 class="text-3xl font-semibold mb-6 flex items-center gap-4">Personalisation</h3>
+                    <p class="text-zinc-300 leading-relaxed text-lg">
+                        As a budding Data Analyst, I'm fervently dedicated to transforming raw data into powerful insights that drive business decisions. 
+                        My passion for uncovering hidden patterns fuels my journey in the world of analytics. 
+                        I thrive in dynamic teams and am eager to learn from industry experts while delivering impactful, data-driven solutions.
+                    </p>
+                </div>
+                <div class="vision-card glass border border-purple-900/30 rounded-3xl p-10 relative">
+                    <div class="timeline-dot top-10"></div>
+                    <h3 class="text-3xl font-semibold mb-6">Reason to hire me</h3>
+                    <ul class="space-y-6 text-zinc-300">
+                        <li class="flex gap-4"><span class="text-purple-400 text-2xl">01</span><div><strong>Clean &amp; Actionable Insights</strong><br>Expert in SQL, Python &amp; visualization tools.</div></li>
+                        <li class="flex gap-4"><span class="text-purple-400 text-2xl">02</span><div><strong>Fast Learner &amp; Team Player</strong><br>Quick to adapt and collaborate with stakeholders.</div></li>
+                        <li class="flex gap-4"><span class="text-purple-400 text-2xl">03</span><div><strong>Business-Focused</strong><br>Every analysis I do aims at real business growth.</div></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects" class="py-24">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="text-5xl font-bold">Projects</h2>
+                <p class="text-zinc-400">Real-world data projects that delivered business value.</p>
+            </div>
+            
+            <div class="flex justify-center gap-2 bg-zinc-900 rounded-3xl p-1 mb-10 inline-flex mx-auto">
+                <button onclick="filterProjects('all')" class="project-filter active px-6 py-2 rounded-3xl text-sm font-medium" id="filter-all">ALL</button>
+                <button onclick="filterProjects('python')" class="project-filter px-6 py-2 rounded-3xl text-sm font-medium" id="filter-python">Python</button>
+                <button onclick="filterProjects('sql')" class="project-filter px-6 py-2 rounded-3xl text-sm font-medium" id="filter-sql">SQL</button>
+                <button onclick="filterProjects('powerbi')" class="project-filter px-6 py-2 rounded-3xl text-sm font-medium" id="filter-powerbi">Power BI</button>
+                <button onclick="filterProjects('tableau')" class="project-filter px-6 py-2 rounded-3xl text-sm font-medium" id="filter-tableau">Tableau</button>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8" id="projectsGrid">
+                <!-- Global Superstore Project -->
+                <div class="project-card glass rounded-3xl overflow-hidden border border-zinc-700 cursor-pointer" 
+                     data-category="tableau"
+                     onclick="window.location.href='projects/global-superstore.html'">
+                    <img src="https://picsum.photos/id/1015/600/380" class="w-full h-56 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-semibold">Global Superstore Sales Performance Dashboard</h3>
+                        <div class="mt-4 flex gap-2">
+                            <span class="text-xs bg-blue-600 text-white px-4 py-1 rounded-full font-medium">Tableau</span>
+                        </div>
+                        <p class="text-zinc-400 text-sm mt-3 line-clamp-2">
+                            Interactive Tableau dashboard analyzing sales, profit & trends across regions and categories.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Hospital Operations Project -->
+                <div class="project-card glass rounded-3xl overflow-hidden border border-zinc-700 cursor-pointer" 
+                     data-category="powerbi"
+                     onclick="window.location.href='projects/hospital-operations.html'">
+                    <img src="https://picsum.photos/id/201/600/380" class="w-full h-56 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-semibold">Hospital Operations & Patient Analytics Dashboard</h3>
+                        <div class="mt-4 flex gap-2">
+                            <span class="text-xs bg-amber-500 text-black px-4 py-1 rounded-full font-medium">Power BI</span>
+                        </div>
+                        <p class="text-zinc-400 text-sm mt-3 line-clamp-2">
+                            Power BI dashboard for hospital performance, patient flow and operational insights.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- EDUCATION -->
+    <section id="education" class="py-24">
+        <div class="max-w-4xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-5xl font-bold">Education</h2>
+            </div>
+            <div class="relative pl-12">
+                <div class="timeline-line"></div>
+                
+                <!-- All education cards here -->
+                <div class="edu-card glass border border-zinc-700 rounded-3xl p-8 mb-12 relative">
+                    <div class="timeline-dot top-9"></div>
+                    <div class="flex justify-between">
+                        <div>
+                            <div class="text-purple-400 font-bold">Jan - March 2025</div>
+                            <h3 class="text-2xl font-semibold">Data Analyst with Python</h3>
+                            <p class="text-zinc-400">Elysium Academy, Madurai</p>
+                        </div>
+                    </div>
+                    <ul class="mt-6 text-zinc-300 list-disc pl-5 space-y-2">
+                        <li>Learned Python for data analysis using Pandas, NumPy, Seaborn and Matplotlib.</li>
+                        <li>Performed data cleaning, exploratory data analysis, ETL and visualization on datasets.</li>
+                        <li>Completed Industry-oriented training focused on end-to-end Data analytics lifecycle.</li>
+                    </ul>
+                </div>
+
+                <div class="edu-card glass border border-zinc-700 rounded-3xl p-8 mb-12 relative">
+                    <div class="timeline-dot top-9"></div>
+                    <div class="flex justify-between">
+                        <div>
+                            <div class="text-purple-400 font-bold">Oct - Dec 2025</div>
+                            <h3 class="text-2xl font-semibold">Data Analytics Masters</h3>
+                            <p class="text-zinc-400">Udemy</p>
+                        </div>
+                    </div>
+                    <ul class="mt-6 text-zinc-300 list-disc pl-5 space-y-2">
+                        <li>Completed Course in data analysis, visualization, and business intelligence.</li>
+                        <li>Worked with tools such as Excel, SQL, Python, Tableau and Power BI.</li>
+                    </ul>
+                </div>
+
+                <div class="edu-card glass border border-purple-600 rounded-3xl p-8 mb-12 relative">
+                    <div class="timeline-dot top-9 bg-emerald-500"></div>
+                    <div class="flex justify-between">
+                        <div>
+                            <div class="flex items-center gap-3">
+                                <div class="text-purple-400 font-bold">Aug 2022 - May 2026</div>
+                                <span class="bg-emerald-500 text-white text-xs px-3 py-1 rounded-full">Currently Pursuing</span>
+                            </div>
+                            <h3 class="text-2xl font-semibold">B.E - Electronics and Communication Engineering</h3>
+                            <p class="text-emerald-400 font-bold text-xl">CGPA 7.9/10</p>
+                            <p class="text-zinc-400">St.Michael College of Engineering &amp; Technology, Sivaganga.<br>Affiliated by Anna University Chennai.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="edu-card glass border border-zinc-700 rounded-3xl p-8 mb-12 relative">
+                    <div class="timeline-dot top-9"></div>
+                    <div class="flex justify-between">
+                        <div>
+                            <div class="text-purple-400 font-bold">Jun 2020 - April 2022</div>
+                            <h3 class="text-2xl font-semibold">Higher Secondary Education</h3>
+                            <p class="text-emerald-400 font-bold text-xl">12th – 74%</p>
+                            <p class="text-zinc-400">S. N. V. Government Model Hr. Sec. School, Emaneswaram, Ramanathapuram District.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="edu-card glass border border-zinc-700 rounded-3xl p-8 relative">
+                    <div class="timeline-dot top-9"></div>
+                    <div class="flex justify-between">
+                        <div>
+                            <div class="text-purple-400 font-bold">Jun 2019 - April 2020</div>
+                            <h3 class="text-2xl font-semibold">Secondary School Leaving Certificate</h3>
+                            <p class="text-emerald-400 font-bold text-xl">10th – 83%</p>
+                            <p class="text-zinc-400">S. N. V. Government Model Hr. Sec. School, Emaneswaram, Ramanathapuram District.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="py-24">
+        <div class="max-w-2xl mx-auto px-6">
+            <div class="text-center mb-12">
+                <i class="fas fa-envelope text-6xl text-purple-400 mb-4"></i>
+                <h2 class="text-5xl font-bold">Email Me</h2>
+            </div>
+            <form id="contactForm" class="space-y-6">
+                <div class="grid grid-cols-2 gap-6">
+                    <input type="text" id="name" placeholder="Your Name" required class="glass border border-zinc-700 focus:border-purple-500 rounded-2xl px-6 py-5 outline-none">
+                    <input type="email" id="email" placeholder="Your Email" required class="glass border border-zinc-700 focus:border-purple-500 rounded-2xl px-6 py-5 outline-none">
+                </div>
+                <input type="text" id="subject" placeholder="Subject" required class="glass w-full border border-zinc-700 focus:border-purple-500 rounded-2xl px-6 py-5 outline-none">
+                <textarea id="message" rows="6" placeholder="Message" required class="glass w-full border border-zinc-700 focus:border-purple-500 rounded-3xl px-6 py-5 outline-none resize-none"></textarea>
+                
+                <button type="submit" id="sendBtn"
+                        class="purple-btn w-full py-6 text-xl font-semibold rounded-3xl flex items-center justify-center gap-3 hover:scale-105 transition-all">
+                    Send Message <i class="fas fa-paper-plane"></i>
+                </button>
+            </form>
+            <div id="status" class="text-center mt-6 text-sm font-medium"></div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-black/80 py-16">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center border-t border-zinc-800 pt-12">
+                <div>
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-9 h-9 bg-purple-600 rounded-2xl flex items-center justify-center text-2xl font-bold">G</div>
+                        <span class="text-2xl font-bold">Girifollo</span>
+                    </div>
+                    <div class="text-3xl font-bold">Giridharan S</div>
+                    <div class="text-zinc-400">Turning Data into Decisions ✨</div>
+                </div>
+                <div class="flex gap-8 mt-10 md:mt-0 text-3xl">
+                    <a href="#" class="hover:text-green-400"><i class="fab fa-whatsapp"></i></a>
+                    <a href="mailto:your.email@gmail.com" class="hover:text-blue-400"><i class="fas fa-envelope"></i></a>
+                    <a href="#" class="hover:text-blue-600"><i class="fab fa-linkedin"></i></a>
+                    <a href="#" class="hover:text-gray-400"><i class="fab fa-github"></i></a>
+                </div>
+            </div>
+            <div class="text-center text-xs text-zinc-500 mt-16">
+                © 2026 Giridharan S • Built with passion
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // EmailJS Setup
+        emailjs.init("XY0ziiCSq9oyYZbor");
+
+        const form = document.getElementById('contactForm');
+        const status = document.getElementById('status');
+        const sendBtn = document.getElementById('sendBtn');
+
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            sendBtn.innerHTML = 'Sending... <i class="fas fa-spinner fa-spin"></i>';
+            sendBtn.disabled = true;
+            status.textContent = '';
+
+            const templateParams = {
+                from_name: document.getElementById('name').value,
+                from_email: document.getElementById('email').value,
+                subject: document.getElementById('subject').value,
+                message: document.getElementById('message').value
+            };
+
+            emailjs.send("service_lapzj91", "template_1bk8wni", templateParams)
+                .then(() => {
+                    status.innerHTML = '<span class="text-green-400">✅ Message sent successfully! Thank you.</span>';
+                    form.reset();
+                })
+                .catch((error) => {
+                    console.error('EmailJS Error:', error);
+                    status.innerHTML = '<span class="text-red-400">❌ Failed to send. Try again or email me directly.</span>';
+                })
+                .finally(() => {
+                    sendBtn.innerHTML = 'Send Message <i class="fas fa-paper-plane"></i>';
+                    sendBtn.disabled = false;
+                });
+        });
+
+        function toggleMobileMenu() {
+            document.getElementById('mobileMenu').classList.toggle('hidden');
+        }
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                if (this.getAttribute('href') !== '#') {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+
+        function filterProjects(category) {
+            document.querySelectorAll('.project-filter').forEach(btn => btn.classList.remove('active'));
+            
+            if (category === 'all') document.getElementById('filter-all').classList.add('active');
+            else if (category === 'python') document.getElementById('filter-python').classList.add('active');
+            else if (category === 'sql') document.getElementById('filter-sql').classList.add('active');
+            else if (category === 'powerbi') document.getElementById('filter-powerbi').classList.add('active');
+            else if (category === 'tableau') document.getElementById('filter-tableau').classList.add('active');
+
+            document.querySelectorAll('#projectsGrid > div').forEach(card => {
+                card.style.display = (category === 'all' || card.getAttribute('data-category') === category) ? 'block' : 'none';
+            });
+        }
+
+        window.onload = () => filterProjects('all');
+    </script>
+</body>
+</html>
