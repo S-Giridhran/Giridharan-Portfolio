@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Swiggy Sales Analysis | Giridharan S</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background: linear-gradient(135deg, #1a1a2e, #16213e, #0f172a);
+            background-attachment: fixed;
+            color: white;
+        }
+        .glass { 
+            background: rgba(15, 23, 42, 0.85); 
+            backdrop-filter: blur(12px); 
+        }
+        .section-card {
+            background: rgba(15, 23, 42, 0.75);
+            border: 1px solid rgba(168, 85, 247, 0.2);
+        }
+
+        /* Image Hover Animation */
+        .dashboard-img {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .dashboard-img:hover {
+            transform: scale(1.06);
+            box-shadow: 0 25px 50px -12px rgb(168 85 247 / 0.4);
+        }
+
+        /* Full Screen Modal */
+        #imageModal {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.95);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        #modalImage {
+            max-width: 95%;
+            max-height: 90vh;
+            border-radius: 12px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.8);
+        }
+        .close-btn {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            font-size: 40px;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .close-btn:hover {
+            color: #a855f7;
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body class="min-h-screen pb-20">
+
+    <!-- Back Button -->
+    <div class="max-w-5xl mx-auto px-6 pt-8">
+        <a href="../index.html" class="inline-flex items-center gap-3 text-purple-400 hover:text-purple-300 transition-colors text-lg">
+            <i class="fas fa-arrow-left"></i> Back to Portfolio
+        </a>
+    </div>
+
+    <!-- Main Heading -->
+    <div class="bg-gradient-to-r from-purple-700 to-pink-600 py-12 mt-6">
+        <div class="max-w-5xl mx-auto px-6 text-center">
+            <h1 class="text-4xl md:text-5xl font-bold leading-tight">
+                Swiggy Sales Analysis Using MS SQL Server 22
+            </h1>
+            <p class="text-lg mt-3 text-purple-200">SQL Project</p>
+        </div>
+    </div>
+
+    <div class="max-w-5xl mx-auto px-6 mt-12 space-y-10">
+
+        <!-- Project Overview -->
+        <div class="section-card glass rounded-3xl p-8 md:p-10">
+            <h2 class="text-2xl font-semibold mb-5 flex items-center gap-3">
+                <span class="text-purple-400"></span> Project Overview
+            </h2>
+            <p class="text-zinc-300 leading-relaxed text-base md:text-lg">
+                Developed an end-to-end SQL data analytics project using Microsoft SQL Server to analyze retail sales data. The project includes database design, star schema implementation, data cleaning, validation, SQL querying, joins, CTEs, window functions, views, stored procedures, and business insight generation to support data-driven decision making.
+            </p>
+        </div>
+
+        <!-- Tools Used -->
+        <div class="section-card glass rounded-3xl p-8 md:p-10">
+            <h2 class="text-2xl font-semibold mb-6 flex items-center gap-3">
+                <span class="text-purple-400"></span> Tools Used
+            </h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+                <div class="flex items-start gap-4">
+                    <i class="fas fa-database text-2xl text-blue-400 mt-1"></i>
+                    <div>
+                        <strong class="text-lg">Microsoft SQL Server</strong><br>
+                        <span class="text-zinc-400">Database creation, management & data analysis</span>
+                    </div>
+                </div>
+
+                <div class="flex items-start gap-4">
+                    <i class="fas fa-laptop-code text-2xl text-green-400 mt-1"></i>
+                    <div>
+                        <strong class="text-lg">SSMS (SQL Server Management Studio)</strong><br>
+                        <span class="text-zinc-400">Query execution & database management</span>
+                    </div>
+                </div>
+
+                <div class="flex items-start gap-4">
+                    <i class="fas fa-code text-2xl text-purple-400 mt-1"></i>
+                    <div>
+                        <strong class="text-lg">SQL</strong><br>
+                        <span class="text-zinc-400">Joins, CTEs, Window Functions & Aggregations</span>
+                    </div>
+                </div>
+
+                <div class="flex items-start gap-4">
+                    <i class="fas fa-sitemap text-2xl text-pink-400 mt-1"></i>
+                    <div>
+                        <strong class="text-lg">Star Schema Design</strong><br>
+                        <span class="text-zinc-400">Fact & Dimension table modeling</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Key Insights -->
+        <div class="section-card glass rounded-3xl p-8 md:p-10">
+            <h2 class="text-2xl font-semibold mb-6 flex items-center gap-3">
+                <span class="text-purple-400"></span> Key Insights
+            </h2>
+
+            <ul class="space-y-4 text-base md:text-lg text-zinc-300">
+
+                <li class="flex gap-4">
+                    <span class="text-purple-400 text-xl">•</span>
+                    SQL analysis shows that certain restaurants consistently generate higher order volumes due to strong customer ratings and demand patterns.
+                </li>
+
+                <li class="flex gap-4">
+                    <span class="text-purple-400 text-xl">•</span>
+                    Peak order times are observed during evening hours, indicating high demand during dinner time compared to lunch and breakfast.
+                </li>
+
+                <li class="flex gap-4">
+                    <span class="text-purple-400 text-xl">•</span>
+                    Cuisine-wise analysis reveals that North Indian and Fast Food categories dominate total orders across the dataset.
+                </li>
+
+                <li class="flex gap-4">
+                    <span class="text-purple-400 text-xl">•</span>
+                    Location-based grouping highlights that metro areas contribute significantly higher order counts than non-metro regions.
+                </li>
+
+                <li class="flex gap-4">
+                    <span class="text-purple-400 text-xl">•</span>
+                    Customer rating trends indicate that highly rated restaurants tend to receive more repeat orders and better visibility.
+                </li>
+
+            </ul>
+        </div>
+
+    
+
+        <!-- Project Resources Section -->
+<div class="section-card glass rounded-3xl p-8 md:p-10 text-center">
+    <h2 class="text-2xl font-semibold mb-4">Project Resources</h2>
+    <p class="text-zinc-400 mb-10">Complete project documentation with methodology and findings.</p>
+    
+    <div class="flex flex-wrap justify-center items-center gap-6 md:gap-8 max-w-4xl mx-auto">
+        <!-- GitHub Button - Solid Block Color -->
+        <a href="https://github.com/S-Giridhran/Swiggy-Sales-Analysis-using-MS-SQL-Server-22" 
+           target="_blank"
+           class="inline-flex items-center justify-center gap-3 
+                  min-w-[260px] sm:min-w-[300px]
+                  bg-[#24292e] hover:bg-[#2b3137] text-white 
+                  px-8 py-4 rounded-2xl text-lg font-medium 
+                  transition-all hover:scale-105 shadow-md flex-1 md:flex-none">
+            <i class="fab fa-github text-xl"></i>
+            View Source Code on GitHub
+        </a>
+
+        <!-- Download PDF Report Button -->
+        <a href="report/Swiggy Analysis Report.pdf"
+           target="_blank"
+           class="inline-flex items-center justify-center gap-3 
+                  min-w-[260px] sm:min-w-[300px]
+                  bg-[#24292e] hover:bg-[#2b3137] text-white 
+                  px-8 py-4 rounded-2xl text-lg font-medium 
+                  transition-all hover:scale-105 shadow-md flex-1 md:flex-none">
+            <i class="fas fa-file-pdf text-xl"></i>
+            View PDF Report
+        </a>
+    </div>
+</div>
+
+<!-- Return to Portfolio Button -->
+<div class="mt-16 text-center">
+    <a href="../index.html#projects"
+       class="inline-flex items-center gap-3 
+          bg-gradient-to-r from-purple-600 to-indigo-600 
+          hover:from-purple-700 hover:to-indigo-700 text-white 
+          px-10 py-5 rounded-3xl text-lg font-semibold 
+          transition-all hover:scale-105 shadow-xl">
+        <i class="fas fa-arrow-left"></i>
+        Return to Portfolio
+    </a>
+</div>
+
+    <!-- Full Screen Image Modal -->
+    <div id="imageModal">
+        <span class="close-btn" onclick="closeModal()">×</span>
+        <img id="modalImage" src="" alt="Full Screen Dashboard">
+    </div>
+
+    <script>
+        function showFullImage(imageSrc) {
+            document.getElementById('modalImage').src = imageSrc;
+            document.getElementById('imageModal').style.display = 'flex';
+        }
+
+        function closeModal() {
+            document.getElementById('imageModal').style.display = 'none';
+        }
+
+        // Close modal when clicking outside the image
+        document.getElementById('imageModal').addEventListener('click', function(e) {
+            if (e.target.id === 'imageModal') {
+                closeModal();
+            }
+        });
+
+        // Keyboard escape support
+        document.addEventListener('keydown', function(e) {
+            if (e.key === "Escape") {
+                closeModal();
+            }
+        });
+        
+    </script>
+
+</body>
+</html>
